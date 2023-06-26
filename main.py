@@ -5,6 +5,15 @@ from secretss import OPENAI_KEY
 # Load the OpenAI key from the environment variables
 openai.api_key = OPENAI_KEY
 
+# Set a title
+st.title("ChatGPT in Nigeria's major languages")
+
+# Set a description
+st.markdown("""
+This is a multilingual chatbot that can understand and respond in Yoruba, Hausa, and Igbo. 
+To start chatting, select a language from the dropdown and type your message in the input box below.
+""")
+
 # Initialize the language_choice with an empty string
 language_choice = st.selectbox("Select a language", ["", "Yoruba", "Hausa", "Igbo"])
 
@@ -26,7 +35,7 @@ def send_message(user_input):
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=st.session_state.conversation,
-        
+
     )
 
     # Extract the assistant's message from the response
