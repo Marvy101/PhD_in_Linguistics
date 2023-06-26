@@ -5,6 +5,10 @@ from secretss import OPENAI_KEY
 # Load the OpenAI key from the environment variables
 openai.api_key = OPENAI_KEY
 
+# Set title of browser
+st.set_page_config(page_title='ChatGPT in Hausa, Yoruba and Igbo')
+
+
 # Set a title
 st.title("ChatGPT in Nigeria's major languages")
 
