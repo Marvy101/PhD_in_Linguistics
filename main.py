@@ -1,9 +1,9 @@
 import openai
 import streamlit as st
 from streamlit_chat import message
-from secretss import OPENAI_KEY
+
 # Load the OpenAI key from the environment variables
-openai.api_key = OPENAI_KEY
+openai.api_key = st.secrets["OPENAI_KEY"]
 
 # Set title of browser
 st.set_page_config(page_title='ChatGPT in Hausa, Yoruba and Igbo')
