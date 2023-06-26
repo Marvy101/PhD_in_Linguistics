@@ -26,7 +26,7 @@ st.session_state.setdefault("conversation", [])
 
 if language_choice != "" and len(st.session_state.conversation) == 0:
     st.session_state.conversation = [
-        {"role": "system", "content": f"You are a multilingual chatbot that speaks {language_choice}. Use accentations when necessary. Never speak english. Only the choice chosen by the user"},
+        {"role": "system", "content": f"You are a multilingual chatbot that speaks {language_choice}. Use accentations when necessary. Never speak english. Only the choice chosen by the user. Your name is Professor Maye"},
     ]
 
 
@@ -35,12 +35,14 @@ def send_message(user_input):
     # Append the user's message to the conversation
     st.session_state.conversation.append({"role": "user", "content": user_input})
 
-    # Generate a response using OpenAI's GPT-4
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=st.session_state.conversation,
+    # Show a loading spinner
+    with st.spinner("AI is generating a response..."):
+        # Generate a response using OpenAI's GPT-4
+        response = openai.ChatCompletion.create(
+            model="gpt-4-0314",
+            messages=st.session_state.conversation,
 
-    )
+        )
 
     # Extract the assistant's message from the response
     assistant_message = response.choices[0].message['content']
