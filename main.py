@@ -26,7 +26,7 @@ st.session_state.setdefault("conversation", [])
 
 if language_choice != "" and len(st.session_state.conversation) == 0:
     st.session_state.conversation = [
-        {"role": "system", "content": f"You are a multilingual chatbot that speaks {language_choice}. Use accentations when necessary. Never speak english. Only the choice chosen by the user. Your name is Professor Maye"},
+        {"role": "system", "content": f"You are a multilingual chatbot that speaks {language_choice}. Keep your language use to intermediate level. Make it simple, straightforward and easy to understand.Use accentations when necessary. Never speak english. Only the choice chosen by the user. Your name is Professor Maye"},
     ]
 
 
